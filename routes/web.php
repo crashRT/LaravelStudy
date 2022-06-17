@@ -17,4 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// show method
 Route::get('/sample', [\App\Http\Controllers\Sample\IndexController::class, 'show']);
+
+// showId method
+Route::get('/sample/{id}', [\App\Http\Controllers\Sample\IndexController::class, 'showId']);
