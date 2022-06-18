@@ -38,7 +38,7 @@ class RouteServiceProvider extends ServiceProvider
         });
 
         // tweedID は整数のみ
-        Route::pattern('tweetID', '[0-9]+');
+        Route::pattern('tweetId', '[0-9]+');
     }
 
     /**

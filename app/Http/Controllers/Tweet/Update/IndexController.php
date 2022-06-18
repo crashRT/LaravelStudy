@@ -26,6 +26,8 @@ class IndexController extends Controller
         }
         first() の代わりに firstOrFail() を使えば省略可能
         */
-        return view('tweet.index')->with('tweet', '$tweet');
+        
+        //dd($tweet);
+        return view('tweet.update')->with('tweet', '$tweet');
     }
 }
