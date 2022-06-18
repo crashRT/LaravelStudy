@@ -25,8 +25,15 @@ Route::get('/sample', [\App\Http\Controllers\Sample\IndexController::class, 'sho
 Route::get('/sample/{id}', [\App\Http\Controllers\Sample\IndexController::class, 'showId']);
 
 // --------   Tweet   ----------
+
+// read
 Route::get('/tweet', \App\Http\Controllers\Tweet\IndexController::class)
 -> name('tweet.index') ;
 
-Route::get('/tweet/create', \App\Http\Controllers\Tweet\CreateController::class)
+// create
+Route::post('/tweet/create', \App\Http\Controllers\Tweet\CreateController::class)
 -> name('tweet.create');
+
+// update
+Route::get('/tweet/update/{tweetId}', \App\Http\Controllers\Tweet\Update\IndexController::class)->name('tweet.update.index')->where('tweetId', '[0-9]+');
+Route::put('/tweet/update/{tweetId}', \App\Http\Controllers\Tweet\Update\PutController::class)->name('tweet.update.put')->where('tweetId', '[0-9]+');

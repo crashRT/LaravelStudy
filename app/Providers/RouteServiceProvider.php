@@ -36,6 +36,9 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
         });
+
+        // tweedID は整数のみ
+        Route::pattern('tweetID', '[0-9]+');
     }
 
     /**
