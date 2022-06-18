@@ -19,13 +19,13 @@ class IndexController extends Controller
     public function __invoke(Request $request)
     {
         $tweetId = (int) $request->route('tweetId');
-        $tweet = Tweet::where('id', $tweetID)->firstOrFail();
+        $tweet = Tweet::where('id', $tweetId)->firstOrFail();
         /*
         if (is_null($tweet)){
             throw new NotFoundHttpException('存在しないつぶやきです');
         }
         first() の代わりに firstOrFail() を使えば省略可能
         */
-        dd($tweet);
+        return view('tweet.index')->with('tweet', '$tweet');
     }
 }
