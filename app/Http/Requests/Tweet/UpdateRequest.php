@@ -33,7 +33,7 @@ class UpdateRequest extends FormRequest
     }
 
     public function id(): int{
-        return (int0) $this->route('tweetId');
+        return (int) $this->route('tweetId');
 
     }
 }
