@@ -14,9 +14,9 @@
         <h1>つぶやきアプリ</h1>
         <section>
             <h2>投稿フォーム</h2>
-            <form action="{{  route('tweet.create') }}" method=""post>
+            <form action="{{  route('tweet.create') }}" method="post">
                 @csrf
-                <label for=""tweet-content">つぶやき</label>
+                <label for="tweet-content">つぶやき</label>
                 <span>140字まで</span>
                 <textarea id="tweet-content" type="text" name="tweet" placeholder="つぶやきを入力"></textarea>
                 @error('tweet')
@@ -29,7 +29,7 @@
             <h2>投稿一覧</h2>
             @foreach($tweets as $tweet)
             <section>
-                <p>{{ $tweet->content }}</p>
+                <p>{{ $tweet->content }} <a href="{{ route('tweet.update.index', ['tweetId' => $tweet->id]) }}">編集</a></p>
             </section>
             @endforeach
 
