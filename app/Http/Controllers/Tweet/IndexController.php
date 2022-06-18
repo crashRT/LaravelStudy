@@ -15,6 +15,7 @@ class IndexController extends Controller
      */
     public function __invoke(Request $request)
     {
-        return view('tweet.index', ['name' => 'laravel']);
+        //return view('tweet.index', ['name' => 'laravel']);
+        return View::make('tweet.idex', ['name' => 'laravel']); //どちらでもOK
     }
 }
