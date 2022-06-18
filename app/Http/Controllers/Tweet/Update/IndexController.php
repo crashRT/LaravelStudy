@@ -28,6 +28,6 @@ class IndexController extends Controller
         */
         
         //dd($tweet);
-        return view('tweet.update')->with('tweet', '$tweet');
+        return view('tweet.update')->with('tweet', $tweet);
     }
 }
