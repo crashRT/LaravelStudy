@@ -14,6 +14,9 @@
         <h1>つぶやきアプリ</h1>
         <section>
             <h2>投稿フォーム</h2>
+            @if (session('feedback.success'))
+            <p style="color: green">{{ session('feedback.success') }}</p>
+            @endif
             <form action="{{  route('tweet.create') }}" method="post">
                 @csrf
                 <label for="tweet-content">つぶやき</label>
@@ -29,7 +32,17 @@
             <h2>投稿一覧</h2>
             @foreach($tweets as $tweet)
             <section>
-                <p>{{ $tweet->content }} <a href="{{ route('tweet.update.index', ['tweetId' => $tweet->id]) }}">編集</a></p>
+                <details>
+                    <summary>{{ $tweet->content }}</summary>
+                    <div>
+                        <a href="{{ route('tweet.update.index', ['tweetId' => $tweet->id]) }}">編集</a>
+                        <form action="{{ route('tweet.delete', ['tweetId' => $tweet->id]) }}" method="post">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit">削除</button>
+                        </form>
+                    </div>
+                </details>
             </section>
             @endforeach
 
